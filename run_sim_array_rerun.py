@@ -29,7 +29,8 @@ def main_sim(seed, start_idx, final_idx, save_path, verbose, plot, trouble_bool)
     seed : Int
         Random number generator seed.
     start_idx : Int
-        Starting hour (index starts at 0).
+        Starting hour (index starts at 0).  A special value of -1 starts
+        a new simulation run, rather than continuing an old one.
     final_idx : Int
         Final hour (when the simulation exits).
     save_path : String
@@ -90,6 +91,8 @@ def get_parser() -> argparse.ArgumentParser:
     """)
     parser.add_argument("start_idx", type=int, help="""
         Starting hour (index starts at 0).
+        A special value of -1 starts a new simulation run, rather than
+        continuing an old one.
     """)
     parser.add_argument("final_idx", type=int, help="""
         Final hour (when the simulation exits).
